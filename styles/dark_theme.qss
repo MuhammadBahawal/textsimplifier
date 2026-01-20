@@ -1,0 +1,89 @@
+/* Dark Theme Stylesheet for Phrase Simplifier */
+
+QMainWindow {
+    background-color: #121212;
+}
+
+QFrame#toolbar {
+    background-color: #0D0D1A;
+    border-bottom: 1px solid #333333;
+}
+
+QFrame#chatHeader {
+    background-color: #1A1A2E;
+    border-bottom: 1px solid #333333;
+}
+
+QFrame#inputArea {
+    background-color: #1A1A2E;
+    border-top: 1px solid #333333;
+}
+
+QScrollArea {
+    border: none;
+    background-color: #121212;
+}
+
+QScrollBar:vertical {
+    background-color: #2D2D2D;
+    width: 8px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #555555;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QLineEdit {
+    background-color: #2D2D3D;
+    border: 2px solid #3D3D4D;
+    border-radius: 24px;
+    padding: 12px 20px;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+QLineEdit:focus {
+    border-color: #4A90D9;
+}
+
+QLineEdit::placeholder {
+    color: #888888;
+}
+
+QPushButton#sendButton {
+    background-color: #4A90D9;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+QPushButton#sendButton:hover {
+    background-color: #5AA0E9;
+}
+
+QPushButton#sendButton:pressed {
+    background-color: #3A80C9;
+}
+
+QPushButton#sendButton:disabled {
+    background-color: #555555;
+}
+
+QLabel {
+    color: #FFFFFF;
+}
+
+QWidget#messageBubble {
+    border-radius: 16px;
+}
