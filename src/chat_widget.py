@@ -409,11 +409,11 @@ Just type any complex sentence and I'll make it simpler and easier to understand
         
         # Update status with beautiful styling
         if is_online_mode:
-            self.status_label.setText("Online (Gemini AI)")
+            self.status_label.setText("Online")
             self.status_label.setStyleSheet("color: #10B981; font-size: 13px; font-weight: 500;")
             self.status_dot.setStyleSheet("color: #10B981; font-size: 10px;")
         else:
-            self.status_label.setText("Offline Mode")
+            self.status_label.setText("Offline")
             self.status_label.setStyleSheet("color: #F59E0B; font-size: 13px; font-weight: 500;")
             self.status_dot.setStyleSheet("color: #F59E0B; font-size: 10px;")
         

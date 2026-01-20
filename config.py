@@ -15,7 +15,7 @@ APP_DATA_DIR = Path(os.getenv('APPDATA', '')) / 'PhraseSimplifier'
 CONFIG_FILE = APP_DATA_DIR / 'config.json'
 
 # Default API Key (user provided)
-DEFAULT_API_KEY = "AIzaSyCNsqinz7wTQ_wgUTrFG-qJsgmnxYtT5w0"
+DEFAULT_API_KEY = "AIzaSyDe-Hjno4YP_qdSEjx1eToK7hzOV5XrL3E"
 
 # Default settings
 DEFAULT_CONFIG = {
