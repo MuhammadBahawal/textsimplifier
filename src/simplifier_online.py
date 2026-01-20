@@ -43,37 +43,38 @@ class OnlineSimplifier:
     def _get_prompt(self, text: str) -> str:
         """Generate a unified multilingual prompt that auto-detects language and responds accordingly."""
         
-        return f"""You are a multilingual text simplifier expert. Your task is to:
+        return f"""You are a multilingual text simplifier. Your job is to make text EASIER to understand.
+You support Urdu (اردو), Punjabi (ਪੰਜਾਬੀ / پنجابی), English, and Roman Urdu/Punjabi.
 
-1. AUTOMATICALLY DETECT the language of the input text. It can be:
-   - اردو (Urdu in Arabic script)
-   - پنجابی (Punjabi in Shahmukhi/Arabic script)
-   - English
-   - Roman Urdu (Urdu written in Roman/Latin letters)
+STEP 1 - DETECT LANGUAGE:
+Identify if the text is in: Urdu, Punjabi (Gurmukhi or Shahmukhi), English, or Roman script (Urdu/Punjabi).
 
-2. SIMPLIFY the text by:
-   - Keeping the EXACT same meaning
-   - Replacing difficult/complex words with simpler everyday words
-   - Breaking long sentences into shorter, clearer ones
-   - Using common, everyday vocabulary
+STEP 2 - SIMPLIFY THE TEXT:
+Replace difficult words with easy, everyday words in the SAME language and script.
+- If text is Gurmukhi Punjabi, keep it in Gurmukhi but simplify.
+- If text is Shahmukhi Punjabi, keep it in Shahmukhi but simplify.
+- Replace complex Punjabi words with common ones used in daily conversation.
+- Break long sentences into shorter ones.
 
-3. RESPOND IN THE SAME LANGUAGE as the input:
-   - If input is in Urdu → respond in Urdu (Arabic script)
-   - If input is in Punjabi → respond in Punjabi (Shahmukhi script)  
-   - If input is in English → respond in English
-   - If input is in Roman Urdu → respond in Roman Urdu
+EXAMPLES of simplification:
+- "utilize" → "use"
+- "میں نے اس کتاب کا مطالعہ کیا" → "میں نے یہ کتاب پڑھی"
+- "ਤੁਹਾਡਾ ਕੀ ਹਾਲ-ਚਾਲ ਹੈ?" → "ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ?"
+- "Mainu tusi bohot vadiya lagde ho" → "Tusi changey ho"
+
+STEP 3 - RESPOND IN SAME LANGUAGE AND SCRIPT:
+Reply ONLY with the simplified text in the same language and script as the input.
 
 CRITICAL RULES:
-- Reply with ONLY the simplified text
-- Do NOT add any explanations, labels, or quotes
-- Do NOT mention what language you detected
-- Do NOT add "Simplified:", "آسان جملہ:", or any prefix
-- Just output the simplified sentence directly
+1. The output MUST be simpler - use easier words.
+2. Output ONLY the simplified text - no explanations.
+3. Keep the same script (Gurmukhi stays Gurmukhi, Shahmukhi stays Shahmukhi).
+4. Do NOT add any labels or prefixes.
 
-Input text:
+Text to simplify:
 {text}
 
-Simplified output:"""
+Simplified version:"""
     
     def simplify(self, text: str) -> Optional[str]:
         """

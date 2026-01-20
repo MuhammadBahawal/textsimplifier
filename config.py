@@ -15,7 +15,7 @@ APP_DATA_DIR = Path(os.getenv('APPDATA', '')) / 'PhraseSimplifier'
 CONFIG_FILE = APP_DATA_DIR / 'config.json'
 
 # Default API Key (user provided)
-DEFAULT_API_KEY = "AIzaSyDe-Hjno4YP_qdSEjx1eToK7hzOV5XrL3E"
+DEFAULT_API_KEY = "AIzaSyAOq9BHXbfd8qrjzTwNbmo19VimS65suKI"
 
 # Default settings
 DEFAULT_CONFIG = {
@@ -48,23 +48,29 @@ def save_config(config: dict):
     with open(CONFIG_FILE, 'w', encoding='utf-8') as f:
         json.dump(config, f, indent=2)
 
+# Known bad/leaked keys to ignore
+LEAKED_KEYS = [
+    "AIzaSyDe-Hjno4YP_qdSEjx1eToK7hzOV5XrL3E",
+    "AIzaSyCNsqinz7wTQ_wgUTrFG-qJsgmnxYtT5w0"
+]
+
 def get_api_key() -> str:
     """
     Get the Gemini API key.
     Priority:
     1. Environment variable GEMINI_API_KEY
-    2. Saved in config file
+    2. Saved in config file (if not leaked)
     3. Default built-in key
     """
     # Check environment variable first
     env_key = os.getenv('GEMINI_API_KEY', '')
-    if env_key:
+    if env_key and env_key not in LEAKED_KEYS:
         return env_key
     
     # Check config file
     config = load_config()
     key = config.get('gemini_api_key', '')
-    if key:
+    if key and key not in LEAKED_KEYS:
         return key
     
     # Use default key

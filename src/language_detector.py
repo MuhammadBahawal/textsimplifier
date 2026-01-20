@@ -61,12 +61,18 @@ PUNJABI_WORDS = {
     'paaji', 'paji', 'veere', 'veer',
     'bhaji', 'bhabhi', 'tayi', 'chacha',
     'sat', 'sri', 'akal', 'waheguru',
-    'oye', 'yaar', 'yaara',
-    'gaddi', 'gadi',
+    'oye', 'yaar', 'yaara', 'gal', 'galaan',
+    'gaddi', 'gadi', 'cheez',
     'lassi', 'makki', 'roti',
     'jatt', 'jatti', 'gabru',
     'punjab', 'lahore', 'amritsar',
-    'bhangra', 'gidda',
+    'bhangra', 'gidda', 'saanu', 'sanu',
+    'mainu', 'tenu', 'lagda', 'honda', 'reha',
+}
+
+# Common Shahmukhi-specific words (to distinguish from Urdu)
+SHAHMUKHI_SPECIFIC_WORDS = {
+    'تہاڈا', 'ساڈا', 'کیتھے', 'کدوں', 'کیویں', 'ہون', 'نوں', 'وچ', 'نال', 'اے', 'او',
 }
 
 class LanguageDetector:
@@ -107,6 +113,13 @@ class LanguageDetector:
         # Check for Urdu-specific characters
         urdu_specific_count = sum(1 for char in text if char in URDU_SPECIFIC)
         
+        # Check for Shahmukhi-specific words
+        words = set(re.sub(r'[^\w\s]', ' ', text).split())
+        shahmukhi_matches = len(words & SHAHMUKHI_SPECIFIC_WORDS)
+        
+        if shahmukhi_matches > 0:
+            return Language.PUNJABI, min(0.95, arabic_ratio + 0.1)
+            
         # Urdu is more common for Arabic script, default to Urdu
         if urdu_specific_count > 0:
             return Language.URDU, min(0.95, arabic_ratio + 0.1)
@@ -116,7 +129,9 @@ class LanguageDetector:
     
     def _detect_roman(self, text: str) -> Tuple[Language, float]:
         """Detect Roman Urdu or Roman Punjabi."""
-        words = set(text.lower().split())
+        # Strip punctuation to improve matching
+        clean_text = re.sub(r'[^\w\s]', ' ', text.lower())
+        words = set(clean_text.split())
         
         # Count matching words
         urdu_matches = len(words & ROMAN_URDU_WORDS)
@@ -130,8 +145,8 @@ class LanguageDetector:
         punjabi_ratio = punjabi_matches / total_words
         
         # Determine language based on word matches
-        if punjabi_ratio > urdu_ratio and punjabi_ratio > 0.1:
-            return Language.PUNJABI, min(0.8, punjabi_ratio * 2)
+        if punjabi_matches > 0 and punjabi_ratio >= urdu_ratio:
+            return Language.PUNJABI, min(0.9, punjabi_ratio * 3 + 0.2)
         
         if urdu_ratio > 0.1 or urdu_matches >= 2:
             return Language.ROMAN_URDU, min(0.85, urdu_ratio * 2 + 0.3)

@@ -1,0 +1,36 @@
+﻿============================================================
+TESTING: Punjabi Language Detection
+============================================================
+[PASS] Gurmukhi Punjabi: detected punjabi (conf: 0.90)
+[PASS] Roman Punjabi: detected punjabi (conf: 0.90)
+[PASS] Roman Punjabi 2: detected punjabi (conf: 0.90)
+[PASS] Roman Punjabi 3: detected punjabi (conf: 0.90)
+[INFO] Shahmukhi ('Ï¬█üÏº┌êÏº ┌®█î Ï¡Ïº┘ä Ïº█ÆÏƒ'): detected punjabi (conf: 0.95)
+
+============================================================
+TESTING: Punjabi Simplification (Online)
+============================================================
+[INFO] Input (Gurmukhi): Ó¿«Ó®êÓ¿é Ó¿àÓ®▒Ó¿£ Ó¿¼Ó¿╣Ó®üÓ¿ñ Ó¿ûÓ®üÓ¿©Ó¿╝ Ó¿╣Ó¿¥Ó¿é Ó¿òÓ¿┐Ó¿ëÓ¿éÓ¿òÓ¿┐ Ó¿«Ó®çÓ¿░Ó¿¥ Ó¿òÓ®░Ó¿« Ó¿ûÓ¿ñÓ¿« Ó¿╣Ó®ï Ó¿ùÓ¿┐Ó¿å Ó¿╣Ó®êÓÑñ
+Gemini API configured successfully
+Trying model: gemini-3-flash-preview...
+Error with gemini-3-flash-preview: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+Trying model: gemini-2.5-flash...
+Error with gemini-2.5-flash: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+Trying model: gemini-2.0-flash...
+Error with gemini-2.0-flash: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+All models failed
+[FAIL] No result for Gurmukhi
+
+[INFO] Input (Roman): Mainu lagda hai ke sanu eh kamm jaldi khatam karna chahida hai.
+Trying model: gemini-3-flash-preview...
+Error with gemini-3-flash-preview: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+Trying model: gemini-2.5-flash...
+Error with gemini-2.5-flash: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+Trying model: gemini-2.0-flash...
+Error with gemini-2.0-flash: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
+All models failed
+[FAIL] No result for Roman Punjabi
+
+============================================================
+PUNJABI TEST SUMMARY: 4/4 detection passed, 1/2 simplification passed
+============================================================

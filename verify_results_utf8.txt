@@ -1,0 +1,54 @@
+﻿============================================================
+PHRASE SIMPLIFIER - FINAL END-TO-END VERIFICATION
+============================================================
+
+--- Testing Punjabi Gurmukhi ---
+Input: Ó¿ñÓ®üÓ¿╣Ó¿¥Ó¿íÓ¿¥ Ó¿òÓ®Ç Ó¿╣Ó¿¥Ó¿▓ Ó¿╣Ó®ê? Ó¿«Ó®êÓ¿é Ó¿¼Ó¿╣Ó®üÓ¿ñ Ó¿ûÓ®üÓ¿©Ó¿╝ Ó¿╣Ó¿¥Ó¿é Ó¿òÓ¿┐Ó¿ëÓ¿éÓ¿òÓ¿┐ Ó¿«Ó®êÓ¿é Ó¿àÓ®▒Ó¿£ Ó¿òÓ®░Ó¿« Ó¿«Ó®üÓ¿òÓ¿¥ Ó¿▓Ó¿┐Ó¿å Ó¿╣Ó®êÓÑñ
+Detected: ┘¥┘åÏ¼ÏºÏ¿█î (Punjabi) (Confidence: 0.90)
+Simplifying...
+Gemini API configured successfully
+Trying model: gemini-3-flash-preview...
+Success with gemini-3-flash-preview: Ó¿ñÓ®üÓ¿©Ó®ÇÓ¿é Ó¿òÓ¿┐Ó¿ÁÓ®çÓ¿é Ó¿╣Ó®ï? Ó¿«Ó®êÓ¿é Ó¿¼Ó¿╣Ó®üÓ¿ñ Ó¿ûÓ®üÓ¿©Ó¿╝ Ó¿╣Ó¿¥Ó¿é Ó¿òÓ¿┐Ó¿ëÓ¿éÓ¿òÓ¿┐ Ó¿«Ó®êÓ¿é Ó¿àÓ®▒Ó¿£ Ó¿òÓ®░Ó¿« Ó¿ûÓ¿ñÓ¿« Ó¿òÓ¿░ Ó¿▓Ó¿┐Ó¿å Ó¿╣Ó®êÓÑñ...
+Output: Ó¿ñÓ®üÓ¿©Ó®ÇÓ¿é Ó¿òÓ¿┐Ó¿ÁÓ®çÓ¿é Ó¿╣Ó®ï? Ó¿«Ó®êÓ¿é Ó¿¼Ó¿╣Ó®üÓ¿ñ Ó¿ûÓ®üÓ¿©Ó¿╝ Ó¿╣Ó¿¥Ó¿é Ó¿òÓ¿┐Ó¿ëÓ¿éÓ¿òÓ¿┐ Ó¿«Ó®êÓ¿é Ó¿àÓ®▒Ó¿£ Ó¿òÓ®░Ó¿« Ó¿ûÓ¿ñÓ¿« Ó¿òÓ¿░ Ó¿▓Ó¿┐Ó¿å Ó¿╣Ó®êÓÑñ
+Time taken: 5.84s
+
+--- Testing Punjabi Shahmukhi ---
+Input: Ï¬█üÏº┌êÏº ┌®█î Ï¡Ïº┘ä Ïº█ÆÏƒ ┘à█î┌║ Ï¿█üÏ¬ Ï«┘êÏ┤ ┘êÏº┌║ ┌®█î┘ê┌║ Ï¼█Æ ┘à█îÏ▒Ïº ┌®┘à ┘à┌® ┌»█îÏº Ïº█Æ█ö
+Detected: ┘¥┘åÏ¼ÏºÏ¿█î (Punjabi) (Confidence: 0.95)
+Simplifying...
+Trying model: gemini-3-flash-preview...
+Success with gemini-3-flash-preview: Ï¬Ï│█î ┌®█î┘ê█î┌║ Ïº┘êÏƒ ┘à█î┌║ Ï¿█üÏ¬ Ï«┘êÏ┤ Ïó┌║ ┌®█î┘ê┘å┌®█ü ┘à█îÏ▒Ïº ┌®┘à Ï«Ï¬┘à █ü┘ê ┌»█îÏº Ïº█Æ█ö...
+Output: Ï¬Ï│█î ┌®█î┘ê█î┌║ Ïº┘êÏƒ ┘à█î┌║ Ï¿█üÏ¬ Ï«┘êÏ┤ Ïó┌║ ┌®█î┘ê┘å┌®█ü ┘à█îÏ▒Ïº ┌®┘à Ï«Ï¬┘à █ü┘ê ┌»█îÏº Ïº█Æ█ö
+Time taken: 4.75s
+
+--- Testing Punjabi Roman ---
+Input: Tuhada ki haal hai? Main te vadiya waan.
+Detected: ┘¥┘åÏ¼ÏºÏ¿█î (Punjabi) (Confidence: 0.90)
+Simplifying...
+Trying model: gemini-3-flash-preview...
+Success with gemini-3-flash-preview: Tusi kive ho? Main theek aan....
+Output: Tusi kive ho? Main theek aan.
+Time taken: 4.72s
+
+--- Testing Urdu Script ---
+Input: ┘à█î┌║ ┘å█üÏº█îÏ¬ █ü█î ┘àÏ│Ï▒Ï¬ ┘àÏ¡Ï│┘êÏ│ ┌®Ï▒ Ï▒█üÏº █ü┘ê┌║ ┌®█ü ┘à█îÏ▒Ïº ┌®Ïº┘à ┘à┌®┘à┘ä █ü┘ê ┌å┌®Ïº █ü█Æ█ö
+Detected: ÏºÏ▒Ï»┘ê (Urdu) (Confidence: 0.95)
+Simplifying...
+Trying model: gemini-3-flash-preview...
+Trying model: gemini-2.5-flash...
+Success with gemini-2.5-flash: ┘à█î┌║ Ï¿█üÏ¬ Ï«┘êÏ┤ █ü┘ê┌║ ┌®█ü ┘à█îÏ▒Ïº ┌®Ïº┘à █ü┘ê ┌»█îÏº █ü█Æ█ö...
+Output: ┘à█î┌║ Ï¿█üÏ¬ Ï«┘êÏ┤ █ü┘ê┌║ ┌®█ü ┘à█îÏ▒Ïº ┌®Ïº┘à █ü┘ê ┌»█îÏº █ü█Æ█ö
+Time taken: 10.80s
+
+--- Testing Roman Urdu ---
+Input: Main bohat khush hoon kyun ke mera kaam khatam ho gaya hai.
+Detected: Roman Urdu (Confidence: 0.85)
+Simplifying...
+Trying model: gemini-3-flash-preview...
+Success with gemini-3-flash-preview: Mera kaam ho gaya hai, main khush hoon....
+Output: Mera kaam ho gaya hai, main khush hoon.
+Time taken: 8.67s
+
+============================================================
+FINAL SUMMARY: 5/5 tests passed.
+============================================================

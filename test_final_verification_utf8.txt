@@ -1,0 +1,28 @@
+﻿============================================================
+TESTING: Punjabi Language Detection
+============================================================
+[PASS] Gurmukhi Punjabi: detected punjabi (conf: 0.90)
+[PASS] Roman Punjabi: detected punjabi (conf: 0.90)
+[PASS] Roman Punjabi 2: detected punjabi (conf: 0.90)
+[PASS] Roman Punjabi 3: detected punjabi (conf: 0.90)
+[INFO] Shahmukhi ('Ï¬█üÏº┌êÏº ┌®█î Ï¡Ïº┘ä Ïº█ÆÏƒ'): detected punjabi (conf: 0.95)
+
+============================================================
+TESTING: Punjabi Simplification (Online)
+============================================================
+[INFO] Input (Gurmukhi): Ó¿«Ó®êÓ¿é Ó¿àÓ®▒Ó¿£ Ó¿¼Ó¿╣Ó®üÓ¿ñ Ó¿ûÓ®üÓ¿©Ó¿╝ Ó¿╣Ó¿¥Ó¿é Ó¿òÓ¿┐Ó¿ëÓ¿éÓ¿òÓ¿┐ Ó¿«Ó®çÓ¿░Ó¿¥ Ó¿òÓ®░Ó¿« Ó¿ûÓ¿ñÓ¿« Ó¿╣Ó®ï Ó¿ùÓ¿┐Ó¿å Ó¿╣Ó®êÓÑñ
+Gemini API configured successfully
+Trying model: gemini-3-flash-preview...
+Success with gemini-3-flash-preview: Ó¿«Ó®êÓ¿é Ó¿àÓ®▒Ó¿£ Ó¿¼Ó¿╣Ó®üÓ¿ñ Ó¿ûÓ®üÓ¿©Ó¿╝ Ó¿╣Ó¿¥Ó¿é, Ó¿«Ó®çÓ¿░Ó¿¥ Ó¿òÓ®░Ó¿« Ó¿«Ó®üÓ®▒Ó¿ò Ó¿ùÓ¿┐Ó¿å Ó¿╣Ó®êÓÑñ...
+[PASS] Output: Ó¿«Ó®êÓ¿é Ó¿àÓ®▒Ó¿£ Ó¿¼Ó¿╣Ó®üÓ¿ñ Ó¿ûÓ®üÓ¿©Ó¿╝ Ó¿╣Ó¿¥Ó¿é, Ó¿«Ó®çÓ¿░Ó¿¥ Ó¿òÓ®░Ó¿« Ó¿«Ó®üÓ®▒Ó¿ò Ó¿ùÓ¿┐Ó¿å Ó¿╣Ó®êÓÑñ
+
+[INFO] Input (Roman): Mainu lagda hai ke sanu eh kamm jaldi khatam karna chahida hai.
+Trying model: gemini-3-flash-preview...
+Model gemini-3-flash-preview unavailable, trying next...
+Trying model: gemini-2.5-flash...
+Success with gemini-2.5-flash: Mainu lagda hai, eh kamm jaldi mukao....
+[PASS] Output: Mainu lagda hai, eh kamm jaldi mukao.
+
+============================================================
+PUNJABI TEST SUMMARY: 4/4 detection passed, 2/2 simplification passed
+============================================================
