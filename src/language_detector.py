@@ -11,6 +11,7 @@ class Language(Enum):
     URDU = "urdu"
     PUNJABI = "punjabi"
     ROMAN_URDU = "roman_urdu"
+    ENGLISH = "english"
     UNKNOWN = "unknown"
 
 # Unicode ranges for Arabic script (used by Urdu and Punjabi)
@@ -139,8 +140,8 @@ class LanguageDetector:
         if urdu_matches > 0 or punjabi_matches > 0:
             return Language.ROMAN_URDU, 0.5
         
-        # Default to Roman Urdu for unrecognized Roman text
-        return Language.ROMAN_URDU, 0.3
+        # Default to English for unrecognized Roman text (pure English)
+        return Language.ENGLISH, 0.7
     
     def get_language_name(self, lang: Language) -> str:
         """Get human-readable language name."""
@@ -148,6 +149,7 @@ class LanguageDetector:
             Language.URDU: "اردو (Urdu)",
             Language.PUNJABI: "پنجابی (Punjabi)",
             Language.ROMAN_URDU: "Roman Urdu",
+            Language.ENGLISH: "English",
             Language.UNKNOWN: "Unknown"
         }
         return names.get(lang, "Unknown")

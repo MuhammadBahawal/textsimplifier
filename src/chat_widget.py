@@ -316,9 +316,10 @@ Welcome to Phrase Simplifier!
 I can simplify your sentences in:
 • اردو (Urdu)
 • پنجابی (Punjabi)  
+• English
 • Roman Urdu
 
-Just type any complex sentence and I'll make it simpler and easier to understand! ✨"""
+Just type any complex sentence and I'll automatically detect the language and make it simpler! ✨"""
         
         self._add_message(welcome_text, is_user=False, is_rtl=False)
     

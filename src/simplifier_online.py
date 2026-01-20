@@ -40,61 +40,40 @@ class OnlineSimplifier:
             print(f"Failed to configure Gemini API: {e}")
             return False
     
-    def _get_prompt(self, text: str, language: Language) -> str:
-        """Generate the simplification prompt based on language."""
+    def _get_prompt(self, text: str) -> str:
+        """Generate a unified multilingual prompt that auto-detects language and responds accordingly."""
         
-        if language == Language.URDU:
-            return f"""آپ ایک ماہر اردو زبان کے معلم ہیں۔ آپ کا کام پیچیدہ جملوں کو آسان اردو میں بدلنا ہے۔
+        return f"""You are a multilingual text simplifier expert. Your task is to:
 
-اہم ہدایات:
-1. جملے کا مطلب وہی رکھیں
-2. مشکل الفاظ کو آسان الفاظ سے بدلیں
-3. لمبے جملوں کو چھوٹے کریں
-4. صرف آسان جملہ لکھیں - کوئی وضاحت نہیں
+1. AUTOMATICALLY DETECT the language of the input text. It can be:
+   - اردو (Urdu in Arabic script)
+   - پنجابی (Punjabi in Shahmukhi/Arabic script)
+   - English
+   - Roman Urdu (Urdu written in Roman/Latin letters)
 
-اصل جملہ:
+2. SIMPLIFY the text by:
+   - Keeping the EXACT same meaning
+   - Replacing difficult/complex words with simpler everyday words
+   - Breaking long sentences into shorter, clearer ones
+   - Using common, everyday vocabulary
+
+3. RESPOND IN THE SAME LANGUAGE as the input:
+   - If input is in Urdu → respond in Urdu (Arabic script)
+   - If input is in Punjabi → respond in Punjabi (Shahmukhi script)  
+   - If input is in English → respond in English
+   - If input is in Roman Urdu → respond in Roman Urdu
+
+CRITICAL RULES:
+- Reply with ONLY the simplified text
+- Do NOT add any explanations, labels, or quotes
+- Do NOT mention what language you detected
+- Do NOT add "Simplified:", "آسان جملہ:", or any prefix
+- Just output the simplified sentence directly
+
+Input text:
 {text}
 
-آسان جملہ:"""
-
-        elif language == Language.PUNJABI:
-            return f"""تسیں پنجابی زبان دے ماہر ہو۔ تہاڈا کم مشکل جملیاں نوں سوکھی پنجابی وچ بدلنا اے۔
-
-اہم ہدایتاں:
-1. مطلب اوہی رکھو
-2. اوکھے لفظ سوکھے نال بدلو
-3. لمے جملے چھوٹے کرو
-4. صرف سوکھا جملہ لکھو
-
-اصل جملہ:
-{text}
-
-سوکھا جملہ:"""
-
-        elif language == Language.ROMAN_URDU:
-            return f"""You are an expert in Roman Urdu / Romanized Hindi-Urdu. Your job is to simplify complex sentences.
-
-IMPORTANT RULES:
-1. Keep the EXACT same meaning
-2. Replace difficult words with simpler everyday words
-3. Break long sentences into shorter ones
-4. Use common, everyday vocabulary
-5. Reply with ONLY the simplified sentence - no explanations, no quotes
-
-Original text:
-{text}
-
-Simplified version (in Roman Urdu):"""
-
-        else:
-            return f"""Simplify this text while keeping the exact same meaning. Use simple, everyday words. Break long sentences into shorter ones.
-
-IMPORTANT: Reply with ONLY the simplified text. No explanations, no quotes, no extra text.
-
-Original:
-{text}
-
-Simplified:"""
+Simplified output:"""
     
     def simplify(self, text: str) -> Optional[str]:
         """
@@ -117,12 +96,8 @@ Simplified:"""
         ]
         
         try:
-            # Detect language
-            language, confidence = detect_language(text)
-            print(f"Detected language: {language.value} (confidence: {confidence:.2f})")
-            
-            # Generate prompt
-            prompt = self._get_prompt(text, language)
+            # Generate prompt - Gemini will auto-detect language
+            prompt = self._get_prompt(text)
             
             # Try each model
             for model_name in models_to_try:
